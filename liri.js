@@ -24,7 +24,6 @@ function runLiri() {
 		},
 		]).then(function(response) {
 			var command = response.command;
-			console.log("command: " + command);
 
 			switch (response.command) {
 				case "tweets":
@@ -54,7 +53,7 @@ function runLiri() {
 
 			client.get("statuses/user_timeline", params, function(error, tweets, response) {
 				if (!error) {
-					for (i = 0; i < 21; i++) {
+					for (i = 0; i < 20; i++) {
 						console.log(tweets[i].text);				}
 				}else {
 					throw JSON.stringify(error);
@@ -179,7 +178,6 @@ function runLiri() {
 					indexArr.push(t, s, m);
 
 					var n = Math.floor((Math.random() * 3) + 1);
-					console.log(n);
 
 					switch (n) {
 						case 1:
