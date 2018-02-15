@@ -1,6 +1,4 @@
 
-console.log("keys are loaded")
-
 var twitterKeys = {
 	consumer_key: "OryXTyIEdOIIIK3J2EMdPiVNL",
 	consumer_secret: "koTrY4uLFhS1XSIte463PhJQxNtBihDElvbnKUFERfAgJNQL72",

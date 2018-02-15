@@ -26,27 +26,27 @@ function runLiri() {
 			var command = response.command;
 			console.log("command: " + command);
 
-		switch (response.command) {
-			case "tweets":
-			showTweets();
-			break;
+			switch (response.command) {
+				case "tweets":
+				showTweets();
+				break;
 
-			case "spotify":
-			spotSong();
-			break;
+				case "spotify":
+				spotSong();
+				break;
 
-			case "movie":
-			selMov();
-			break;
+				case "movie":
+				selMov();
+				break;
 
-			case "random":
-			randComm();
-			break;
+				case "random":
+				randComm();
+				break;
 
-			case "exit":
-			exitApp();
-			break;
-		};
+				case "exit":
+				exitApp();
+				break;
+			};
 
 		function showTweets() {
 			var client = new twitter(keys.twitterKeys);
