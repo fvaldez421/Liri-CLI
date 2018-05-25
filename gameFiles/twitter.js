@@ -1,7 +1,7 @@
 var twitter = require("twitter");
 var keys = require("../keys");
 
-module.exports = function() {
+module.exports = function() { // calls on twitter api with provided keys and prints last 20 tweets
     var client = new twitter(keys.twitterKeys);
     var params = {screen_name: "manbearpig_5"};
 

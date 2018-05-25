@@ -14,7 +14,7 @@ module.exports = function(ranSong) {
         ]).then(function(input) {
             song = input.userTrack;
 
-            if (input.userTrack === "") {
+            if (input.userTrack === "") { // if user input is blank
                 song = "The Sign, Ace of Base";
             };
             searchSong(input); 

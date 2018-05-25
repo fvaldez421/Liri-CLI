@@ -13,7 +13,7 @@ module.exports = function(ranMov) {
                 }
             ]).then(function(input) {
                 movie = input.userMovie;
-                if (input.userMovie === "") {
+                if (input.userMovie === "") { // if user input is blank
                     movie = "The Terminator";
                 };
                 searchMov();
