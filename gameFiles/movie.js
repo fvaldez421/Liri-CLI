@@ -3,7 +3,7 @@ var request = require("request");
 var keys = require("./../keys.js");
 
 module.exports = function(ranMov) {
-    if (!ranMov) { 
+    if (!ranMov) { // If random movie is NOT provided (undefined), pompts user for a movie
         function getMov() {
             inquirer.prompt([
                 {
@@ -20,11 +20,11 @@ module.exports = function(ranMov) {
             });
         }
         getMov()
-    }else if (ranMov) {
+    }else if (ranMov) { // if random movie IS provided, movie variable = ranMov
         movie = ranMov;
         searchMov();
     }
-    function searchMov() {
+    function searchMov() { // makes call and prints information, has some error handling such as movie not found or 200 status code
         var apiKey = keys.omdbKey;
         var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&apikey=" + apiKey;
         request(queryUrl, function(error, response, body) {

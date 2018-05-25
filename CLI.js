@@ -1,16 +1,11 @@
-
-var keys = require("./keys.js");
 var inquirer = require("inquirer");
-
+var fs = require("fs");
 var showTweets = require("./gameFiles/twitter");
 var spotSong = require("./gameFiles/spotify");
 var selMov = require("./gameFiles/movie");
 
-var fs = require("fs");
-
-
 function runLiri() {
-	inquirer.prompt([
+	inquirer.prompt([ // Prompts user for a command and calls on requested function
 		{
 			type: "list",
 			message: "Give me a command",
@@ -22,23 +17,19 @@ function runLiri() {
 
 			switch (response.command) {
 				case "tweets":
-				showTweets();
+					showTweets();
 				break;
-
 				case "spotify":
-				spotSong();
+					spotSong();
 				break;
-
 				case "movie":
-				selMov();
+					selMov();
 				break;
-
 				case "random":
-				randComm();
+					randComm();
 				break;
-
 				case "exit":
-				exitApp();
+					exitApp();
 				break;
 			};
 
@@ -47,29 +38,24 @@ function runLiri() {
 				if (error) {
 					console.log("error");
 				}else {
-					var indexArr = [];
-					var comArr = JSON.parse(data).split(", ");
+					var comArr = JSON.parse(data).split(", "); // creates array from string of random commands
 					var t = comArr.indexOf("tweets");
 					var s = comArr.indexOf("spotify");
 					var m = comArr.indexOf("movie");
-
-					indexArr.push(t, s, m);
-
-					var n = Math.floor((Math.random() * 3) + 1);
+					var indexArr = [t, s, m];
+					var n = Math.floor((Math.random() * 3) + 1); // random number from (1-3 for the switch case)
 
 					switch (n) {
 						case 1:
-						showTweets();
+							showTweets();
 						break;
-
 						case 2:
-						var ranSong = comArr[s + 1];
-						spotSong(ranSong);
+							var ranSong = comArr[s + 1]; // Provides preditermined song from random.txt
+							spotSong(ranSong);
 						break;
-
 						case 3:
-						var ranMov = comArr[m + 1];
-						selMov(ranMov);
+							var ranMov = comArr[m + 1]; // Provides random movie
+							selMov(ranMov);
 						break;
 					};
 				};
