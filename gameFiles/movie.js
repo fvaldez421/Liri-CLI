@@ -24,15 +24,15 @@ module.exports = function(ranMov) {
         movie = ranMov;
         searchMov();
     }
-    function searchMov() { // makes call and prints information, has some error handling such as movie not found or 200 status code
+    function searchMov() { // makes call and prints information, has some error handling such as movie not found or error
         var apiKey = keys.omdbKey;
         var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&apikey=" + apiKey;
         request(queryUrl, function(error, response, body) {
             var info = JSON.parse(JSON.parse(JSON.stringify(response["body"])));
 
-            if (error || response.statusCode != 200) {
+            if (error || response.statusCode != 200) { // server error handling
                 console.log(error);
-            }else if (info.Title === undefined) {
+            }else if (info.Title === undefined) { // user error handling
                 console.log(info.Error + "\n")
                 getMov();
             }else {

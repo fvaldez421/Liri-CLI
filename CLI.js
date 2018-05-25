@@ -42,7 +42,7 @@ function runLiri() {
 					var t = comArr.indexOf("tweets");
 					var s = comArr.indexOf("spotify");
 					var m = comArr.indexOf("movie");
-					var indexArr = [t, s, m];
+					var indexArr = [t, s, m]; // array of command indices 
 					var n = Math.floor((Math.random() * 3) + 1); // random number from (1-3 for the switch case)
 
 					switch (n) {
@@ -54,7 +54,7 @@ function runLiri() {
 							spotSong(ranSong);
 						break;
 						case 3:
-							var ranMov = comArr[m + 1]; // Provides random movie
+							var ranMov = comArr[m + 1]; // Provides random movie 
 							selMov(ranMov);
 						break;
 					};
