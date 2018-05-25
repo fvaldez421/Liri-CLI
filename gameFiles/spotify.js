@@ -4,7 +4,7 @@ var inquirer = require("inquirer");
 var keys = require("../keys.js");
 
 module.exports = function(ranSong) {
-	if (!ranSong) {
+	if (!ranSong) { // If random song is not provided by CLI.js, prompts user for sing of choice
         inquirer.prompt([
             {
             type: "input",
@@ -19,12 +19,12 @@ module.exports = function(ranSong) {
             };
             searchSong(input); 
         });
-    }else if (ranSong) {
+    }else if (ranSong) { // if random song is provided, song var = ranSong
         song = ranSong;
         searchSong();
     };
 
-    function searchSong() {
+    function searchSong() { // makes call using api key, prints uout information
         var spotify = new Spotify(keys.spotifyKeys);
         spotify.search({ type: "track", query: song + "", limit: 1}, function(err,response, info) {
             if (err) {
